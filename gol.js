@@ -10,7 +10,7 @@ function initGrid(grid) {
             grid[i][j] = 0;
         }
     }
-    // hard coded planar:
+    // hard coded glider:
     grid[0][1] = 1;
     grid[1][2] = 1;
     grid[2][0] = 1;
@@ -220,8 +220,7 @@ buttonReset.addEventListener('click', event => {
 
 const buttonStart = document.getElementById('button-start');
 buttonStart.addEventListener('click', event => {
-    start = true;
-    // updateAll();
+
     var myFunction = function () {
 
         if (start) {
@@ -229,7 +228,11 @@ buttonStart.addEventListener('click', event => {
             setTimeout(myFunction, delai);
         }
     }
-    setTimeout(myFunction, delai);
+    if (!start) {
+        setTimeout(myFunction, delai);
+        start = true;
+    }
+
 
 })
 const buttonStop = document.getElementById('button-stop');
@@ -263,10 +266,10 @@ c.addEventListener('click', function (e) {
 }, false);
 
 
-/* Seeds intéressantes :
-Planeur : 7696585588738
-Oscillateur : 15393162788864
-Une explosion de saveurs : 30354273811110397041125894281132852369679123255739900480800775109381042195518193666
+/* Interesting seeds :
+Glider: 7696585588738
+Oscillator: 15393162788864
+Sugar bomb: 30354273811110397041125894281132852369679123255739900480800775109381042195518193666
 
 
 */
